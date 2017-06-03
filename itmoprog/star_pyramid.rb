@@ -10,4 +10,3 @@ end
 (1..height).reverse_each do |i| 
 	puts(" " * (height - i) + "*" * (2 * i - 1))
 end
-	
