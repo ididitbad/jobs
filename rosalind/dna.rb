@@ -1,4 +1,4 @@
-# usage:	[another program output | ] ruby dna_count.rb [ < file]		
+# usage:	[another program output | ] ruby dna.rb [ < file]		
 
 ARGF.each do |i|
 	dna = i.to_s
