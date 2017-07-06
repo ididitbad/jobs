@@ -1,6 +1,4 @@
 
-set NLS_LANG=russian_cis.ru8pc866
-sqlplus practice/practice123@server.dpat.in:1521/ORCL
 set timing on
 set linesize 250
 
