@@ -1,0 +1,78 @@
+
+<div>
+  <!--<h3>
+    {{updated}}
+  </h3>-->
+  <ngx-datatable
+    #mydatatable
+    class="material"
+    [headerHeight]="50"
+    [limit]="10"
+    [columnMode]="'force'"
+    [footerHeight]="50"
+    [rowHeight]="'auto'"
+    [rows]="rows">
+    <ngx-datatable-column name="Id">
+      <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+        {{value}}
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="Name">
+      <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+            <span
+              title="Double click to edit"
+              (click)="editing[row.$$index + '-name'] = true"
+              *ngIf="!editing[row.$$index + '-name']">
+              {{value}}
+            </span>
+        <input
+          autofocus
+          (blur)="updateValue($event, 'name', value, row)"
+          *ngIf="editing[row.$$index + '-name']"
+          type="text"
+          [value]="value"
+        />
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="Square">
+      <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+            <span
+              title="Double click to edit"
+              (click)="editing[row.$$index + '-square'] = true"
+              *ngIf="!editing[row.$$index + '-square']">
+              {{value}}
+            </span>
+        <input
+          autofocus
+          (blur)="updateValue($event, 'square', value, row)"
+          *ngIf="editing[row.$$index + '-square']"
+          type="text"
+          [value]="value"
+        />
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="Contract">
+      <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+            <span
+              title="Double click to edit"
+              (click)="editing[row.$$index + '-contract'] = true"
+              *ngIf="!editing[row.$$index + '-contract']">
+              {{value}}
+            </span>
+        <input
+          autofocus
+          (blur)="updateValue($event, 'contract', value, row)"
+          *ngIf="editing[row.$$index + '-contract']"
+          type="text"
+          [value]="value"
+        />
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="">
+      <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+        <button md-raised-button (click)="deleteRow($event, row)">Delete</button>
+      </ng-template>
+    </ngx-datatable-column>
+  </ngx-datatable>
+</div>
+
